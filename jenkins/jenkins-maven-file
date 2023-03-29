@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {    
+        stage('checkout the code'){
+            steps{
+                checkout scm
+                echo "Removing files and folders"
+                sh 'ls -al'  
+            }    
+        }                
+    }
+}
