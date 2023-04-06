@@ -15,8 +15,15 @@ pipeline {
             agent {label 'partycity-ecs-dev'}
             steps {
                 checkout scm
-                echo "The file hs been uploded"
-
+                echo "The file has been uploded"
+            }
+        }    
+        stage("Do not upload a file") {
+            when {
+                expression {params.CDPFILE == "NO"}
+            }
+            steps {
+                echo "Do not upload the file"
             }
         }
     }
