@@ -12,7 +12,7 @@ pipeline {
             when {
                 expression {params.CDPFILE == "YES"}
             }
-            agent {label 'partycity-ecs-dev'}
+            agent any
             steps {
                 checkout scm
                 echo "The file has been uploded"
