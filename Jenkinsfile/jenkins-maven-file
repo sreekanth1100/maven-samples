@@ -7,14 +7,13 @@ pipline {
             name: 'CDPFILE'
         )
     }
-    options { skipDefaultCheckout() }
     Stages {
-        stage ("To upload a file"){
+        stage("To upload a file") {
             when {
-                expression { params.CDPFILE == "YES" }
+                expression {params.CDPFILE == "YES"}
             }
             agent {lable "partycity-ecs-dev"}
-            steps{
+            steps {
                 checkout scm
                 echo "The file hs been uploded"
 
