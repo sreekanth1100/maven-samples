@@ -1,12 +1,22 @@
-pipeline {
-    agent any
-    stages {    
-        stage('checkout the code'){
+pipline {
+    agent none
+    parameters {
+        choice(
+            choices: ['Yes','NO'],
+            description: 'Choose if the CDT file need to be Deployed',
+            name: 'CDPFILE'
+        )
+    }
+    Stages{
+        stage ("To upload a file"){
+            when {
+                expression {params.CDPFILE == "YES"}
+            }
+            agent {lable "partycity-ecs-dev"}
             steps{
-                checkout scm
-                echo "Removing files and folders"
-                sh 'ls -al'  
-            }    
-        }                
+                echo "The file hs been uploded"
+
+            }
+        }
     }
 }
