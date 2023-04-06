@@ -2,7 +2,7 @@ pipeline {
     agent none
     parameters {
         choice(
-            choices: ['Yes','NO'],
+            choices: ['YES','NO'],
             description: 'Choose if the CDT file need to be Deployed',
             name: 'CDPFILE'
         )
