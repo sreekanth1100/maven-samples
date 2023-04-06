@@ -14,6 +14,7 @@ pipline {
             }
             agent {lable "partycity-ecs-dev"}
             steps{
+                checkout scm
                 echo "The file hs been uploded"
 
             }
