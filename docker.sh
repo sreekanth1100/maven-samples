@@ -6,8 +6,8 @@ set -o nounset
 IFS=$(printf '\n\t')
 
 # Docker
-apt remove --yes docker docker-engine docker.io containerd runc || true
-apt update
+apt-get remove --yes docker docker-engine docker.io containerd runc || true
+apt-get update
 apt --yes --no-install-recommends install apt-transport-https ca-certificates
 wget --quiet --output-document=- https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository --yes "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release --codename --short) stable"
