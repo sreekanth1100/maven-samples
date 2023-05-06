@@ -4,13 +4,13 @@ pipeline {
         choice(
             choices: ['YES','NO'],
             description: 'Choose if the CDT file need to be Deployed',
-            name: 'CDPFILE'
+            name: 'CDN'
         )
     }
     stages {
         stage("To upload a file") {
             when {
-                expression {params.CDPFILE == "YES"}
+                expression {params.CDN == "YES"}
             }
             agent any
             steps {
@@ -21,7 +21,7 @@ pipeline {
         }    
         stage("Do not upload a file") {
             when {
-                expression {params.CDPFILE == "NO"}
+                expression {params.CDN == "NO"}
             }
             steps {
                 echo "Do not upload the file"
